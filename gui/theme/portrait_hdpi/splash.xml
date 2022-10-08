@@ -44,7 +44,7 @@
 			<text style="menu_text">
 				<placement x="540" y="%rec%" placement="4"/>
 				<font resource="recovery" color="#ffffff"/>
-				<text>Recovery</text>
+				<text>By @shas45558</text>
 			</text>
 		</page>
 	</pages>
