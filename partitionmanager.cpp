@@ -1120,9 +1120,9 @@ int TWPartitionManager::Run_Backup(bool adbbackup) {
 		part_settings.Part = Find_Partition_By_Path(backup_path);
 		if (part_settings.Part != NULL) {
 // DJ9 20/08/2018 { - check for someone trying to back up internal storage onto internal storage
-      		if ((strstr(backup_path.c_str(), "/storage")) || (strstr(backup_path.c_str(), "/data/media/0")))
+      		if ((strstr(backup_path.c_str(), "/storage")) || (strstr(backup_path.c_str(), "/data/media")))
         	{ 
-          	   if (strstr(part_settings.Backup_Folder.c_str(), "data/media/0"))
+          	   if (strstr(part_settings.Backup_Folder.c_str(), "data/media"))
              		{
                 	   gui_err("fox_internal_fatal_i1=OrangeFox: FATAL ERROR! You cannot backup Internal Storage onto itself!");
                 	   gui_err("fox_internal_fatal_i2=You MUST change the backup destination to MicroSD/USB-OTG.");
@@ -1909,8 +1909,8 @@ void TWPartitionManager::Post_Decrypt(const string& Block_Device) {
 			LOGERR("Unable to mount /data after decryption");
 		}
 
-		if (dat->Has_Data_Media && TWFunc::Path_Exists("/data/media/0")) {
-			dat->Storage_Path = "/data/media/0";
+		if (dat->Has_Data_Media && TWFunc::Path_Exists("/data/media")) {
+			dat->Storage_Path = "/data/media";
 		} else {
 			dat->Storage_Path = "/data/media";
 		}
