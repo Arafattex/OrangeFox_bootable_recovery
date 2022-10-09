@@ -385,7 +385,7 @@
 			</action>
 		</page>	
 
-        <page name="imei">
+                <page name="imei">
 			<action>
 				<action function="queueclear"/>
 				<action function="set">fox_m_author=rama</action>
@@ -401,7 +401,7 @@
 			</action>
 		</page>
 
-        <page name="rof">
+                <page name="rof">
 			<action>
 				<action function="queueclear"/>
 				<action function="set">fox_m_author=unknown </action>
@@ -417,7 +417,7 @@
 			</action>
 		</page>
 
-        <page name="enforcer">
+                <page name="enforcer">
 			<action>
 				<action function="queueclear"/>
 				<action function="set">fox_m_author=Unknown </action>
@@ -433,7 +433,7 @@
 			</action>
 		</page>
 
-        <page name="file">
+                <page name="file">
 			<action>
 				<action function="queueclear"/>
 				<action function="set">fox_m_author=Unknown</action>
@@ -449,7 +449,7 @@
 			</action>
 		</page>
 
-        <page name="mm">
+                <page name="mm">
 			<action>
 				<action function="queueclear"/>
 				<action function="set">fox_m_author=Unknown</action>
@@ -465,7 +465,7 @@
 			</action>
 		</page>
 
-        <page name="permissiver">
+                <page name="permissiver">
 			<action>
 				<action function="queueclear"/>
 				<action function="set">fox_m_author=Unknown</action>
@@ -481,7 +481,7 @@
 			</action>
 		</page>
 
-        <page name="rfp">
+                <page name="rfp">
 			<action>
 				<action function="queueclear"/>
 				<action function="set">fox_m_author=Unknown </action>
@@ -497,7 +497,7 @@
 			</action>
 		</page>
 
-        <page name="rw">
+                <page name="rw">
 			<action>
 				<action function="queueclear"/>
 				<action function="set">fox_m_author=rama</action>
@@ -513,7 +513,7 @@
 			</action>
 		</page>
 
-        <page name="vbmeta">
+                <page name="vbmeta">
 			<action>
 				<action function="queueclear"/>
 				<action function="set">fox_m_author=shas45558</action>
