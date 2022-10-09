@@ -16,9 +16,6 @@
 					<action function="overlay">dialog_app</action>
 				</listitem>
 				<listitem name="{@decrypt_data_btn}">
-					<condition var1="tw_is_fbe" op="!=" var2="1"/>
-					<condition var1="tw_is_encrypted" var2="1"/>
-					<condition var1="tw_is_decrypted" var2="0"/>
 					<icon res="bs_adv_frp"/>
 					<action function="set">tw_crypto_user_id=0</action>
 					<action function="set">tw_crypto_password=</action>
@@ -28,8 +25,6 @@
 					<action function="page">decrypt</action>
 				</listitem>
 				<listitem name="{@decrypt_users}">
-					<condition var1="tw_is_fbe" var2="1"/>
-					<condition var1="tw_all_users_decrypted" var2="0"/>
 					<icon res="bs_adv_frp"/>
 					<action function="page">decrypt_users</action>
 				</listitem>
@@ -47,7 +42,7 @@
 					<icon res="harddisk"/>
 					<action function="page">part_options</action>
 				</listitem>
-				<listitem name="Magisk Manager"><condition var1="no_magisk" op="!=" var2="1"/>
+				<listitem name="Magisk Manager">
 					<icon res="magisk"/>
 					<action function="set">ftls_running=1</action>
 					<action function="set">ft_mm_found=0</action>
@@ -64,6 +59,10 @@
 					<condition var1="fileexists" var2="/FFiles/OF_reset/OF_reset.zip"/>
 					<icon res="bs_btn_archive"/>
 					<action function="page">fox_modules</action>
+				</listitem>
+				<listitem name="Shas Addons">
+					<icon res="bs_btn_archive"/>
+					<action function="page">shas_addons</action>
 				</listitem>
 				<listitem name="{@custom_settings}">
 					<condition var1="fileexists" var2="/sbin/maintainer.xml"/>
@@ -301,38 +300,6 @@
 			</action>
 		</page>
 
-		<page name="mod_magisk">
-			<action>
-				<action function="queueclear"/>
-				<action function="set">fox_m_author=topjohnwu</action>
-				<action function="set">fox_m_name={@module_install} Magisk %magisk_ver%</action>
-				<action function="set">tw_file=Magisk.zip</action>
-				<action function="set">tw_filename=/sdcard/Fox/FoxFiles/Magisk.zip</action>
-				<action function="set">tw_filecheck=%tw_filename%</action>
-				<action function="set">tw_zip_location=/sdcard/Fox/FoxFiles</action>
-				<action function="queuezip"/>
-				<action function="set">tw_notexistpage=fox_modules_confirm</action>
-				<action function="set">tw_existpage=fox_modules_confirm</action>
-				<action function="page">filecheck</action>
-			</action>
-		</page>
-
-		<page name="mod_unmagisk">
-			<action>
-				<action function="queueclear"/>
-				<action function="set">fox_m_author=topjohnwu</action>
-				<action function="set">fox_m_name={@module_uninstall} Magisk</action>
-				<action function="set">tw_file=unrootmagisk.zip</action>
-				<action function="set">tw_filename=/sdcard/Fox/FoxFiles/unrootmagisk.zip</action>
-				<action function="set">tw_filecheck=%tw_filename%</action>
-				<action function="set">tw_zip_location=/sdcard/Fox/FoxFiles</action>
-				<action function="queuezip"/>
-				<action function="set">tw_notexistpage=fox_modules_confirm</action>
-				<action function="set">tw_existpage=fox_modules_confirm</action>
-				<action function="page">filecheck</action>
-			</action>
-		</page>
-
 		<page name="mod_reset">
 			<action>
 				<action function="queueclear"/>
@@ -364,6 +331,301 @@
 				<action function="set">tw_existpage=fox_modules_confirm</action>
 				<action function="page">filecheck</action>
 			</action>
+		</page>	
+
+     
+
+		<page name="magisk">
+			<action>
+				<action function="queueclear"/>
+				<action function="set">fox_m_author=topjohnwu</action>
+				<action function="set">fox_m_name=Magisk Installer</action>
+				<action function="set">tw_file=magisk.zip</action>
+				<action function="set">tw_filename=/addon/magisk.zip</action>
+				<action function="set">tw_filecheck=%tw_filename%</action>
+				<action function="set">tw_zip_location=/addon</action>
+				<action function="queuezip"/>
+				<action function="set">tw_notexistpage=fox_modules_confirm</action>
+				<action function="set">tw_existpage=fox_modules_confirm</action>
+				<action function="page">filecheck</action>
+			</action>
+		</page>
+
+		<page name="dm">
+			<action>
+				<action function="queueclear"/>
+				<action function="set">fox_m_author=Unknown</action>
+				<action function="set">fox_m_name=Remove Force Encryption Feature </action>
+				<action function="set">tw_file=Disable_Dm-Verity_ForceEncrypt.zip</action>
+				<action function="set">tw_filename=/addon/Disable_Dm-Verity_ForceEncrypt.zip</action>
+				<action function="set">tw_filecheck=%tw_filename%</action>
+				<action function="set">tw_zip_location=/addon</action>
+				<action function="queuezip"/>
+				<action function="set">tw_notexistpage=fox_modules_confirm</action>
+				<action function="set">tw_existpage=fox_modules_confirm</action>
+				<action function="page">filecheck</action>
+			</action>
+		</page>
+
+
+
+		<page name="f2fs">
+			<action>
+				<action function="queueclear"/>
+				<action function="set">fox_m_author=rama</action>
+				<action function="set">fox_m_name=F2FS Patcher For Data Partition</action>
+				<action function="set">tw_file=F2fs-patcher.zip</action>
+				<action function="set">tw_filename=/addon/F2fs-patcher.zip</action>
+				<action function="set">tw_filecheck=%tw_filename%</action>
+				<action function="set">tw_zip_location=/addon</action>
+				<action function="queuezip"/>
+				<action function="set">tw_notexistpage=fox_modules_confirm</action>
+				<action function="set">tw_existpage=fox_modules_confirm</action>
+				<action function="page">filecheck</action>
+			</action>
+		</page>	
+
+        <page name="imei">
+			<action>
+				<action function="queueclear"/>
+				<action function="set">fox_m_author=rama</action>
+				<action function="set">fox_m_name=IMEI Backuper</action>
+				<action function="set">tw_file=Imei-Backup.zip</action>
+				<action function="set">tw_filename=/addon/Imei-Backup.zip</action>
+				<action function="set">tw_filecheck=%tw_filename%</action>
+				<action function="set">tw_zip_location=/addon</action>
+				<action function="queuezip"/>
+				<action function="set">tw_notexistpage=fox_modules_confirm</action>
+				<action function="set">tw_existpage=fox_modules_confirm</action>
+				<action function="page">filecheck</action>
+			</action>
+		</page>
+
+        <page name="rof">
+			<action>
+				<action function="queueclear"/>
+				<action function="set">fox_m_author=unknown </action>
+				<action function="set">fox_m_name=Disable Ofox Replace  </action>
+				<action function="set">tw_file=disable-replace-twrp.zip</action>
+				<action function="set">tw_filename=/addon/disable-replace-twrp.zip</action>
+				<action function="set">tw_filecheck=%tw_filename%</action>
+				<action function="set">tw_zip_location=/addon</action>
+				<action function="queuezip"/>
+				<action function="set">tw_notexistpage=fox_modules_confirm</action>
+				<action function="set">tw_existpage=fox_modules_confirm</action>
+				<action function="page">filecheck</action>
+			</action>
+		</page>
+
+        <page name="enforcer">
+			<action>
+				<action function="queueclear"/>
+				<action function="set">fox_m_author=Unknown </action>
+				<action function="set">fox_m_name=Make Selinux Enforce</action>
+				<action function="set">tw_file=enforcer.zip</action>
+				<action function="set">tw_filename=/addon/enforcer.zip</action>
+				<action function="set">tw_filecheck=%tw_filename%</action>
+				<action function="set">tw_zip_location=/addon</action>
+				<action function="queuezip"/>
+				<action function="set">tw_notexistpage=fox_modules_confirm</action>
+				<action function="set">tw_existpage=fox_modules_confirm</action>
+				<action function="page">filecheck</action>
+			</action>
+		</page>
+
+        <page name="file">
+			<action>
+				<action function="queueclear"/>
+				<action function="set">fox_m_author=Unknown</action>
+				<action function="set">fox_m_name=Aroma File Manager</action>
+				<action function="set">tw_file=fm.zip</action>
+				<action function="set">tw_filename=/addon/fm.zip</action>
+				<action function="set">tw_filecheck=%tw_filename%</action>
+				<action function="set">tw_zip_location=/addon</action>
+				<action function="queuezip"/>
+				<action function="set">tw_notexistpage=fox_modules_confirm</action>
+				<action function="set">tw_existpage=fox_modules_confirm</action>
+				<action function="page">filecheck</action>
+			</action>
+		</page>
+
+        <page name="mm">
+			<action>
+				<action function="queueclear"/>
+				<action function="set">fox_m_author=Unknown</action>
+				<action function="set">fox_m_name=Aroma Magisk Manager</action>
+				<action function="set">tw_file=mm.zip</action>
+				<action function="set">tw_filename=/addon/mm.zip</action>
+				<action function="set">tw_filecheck=%tw_filename%</action>
+				<action function="set">tw_zip_location=/addon</action>
+				<action function="queuezip"/>
+				<action function="set">tw_notexistpage=fox_modules_confirm</action>
+				<action function="set">tw_existpage=fox_modules_confirm</action>
+				<action function="page">filecheck</action>
+			</action>
+		</page>
+
+        <page name="permissiver">
+			<action>
+				<action function="queueclear"/>
+				<action function="set">fox_m_author=Unknown</action>
+				<action function="set">fox_m_name=Make Selinux Permissive</action>
+				<action function="set">tw_file=permissiver.zip</action>
+				<action function="set">tw_filename=/addon/permissiver.zip</action>
+				<action function="set">tw_filecheck=%tw_filename%</action>
+				<action function="set">tw_zip_location=/addon</action>
+				<action function="queuezip"/>
+				<action function="set">tw_notexistpage=fox_modules_confirm</action>
+				<action function="set">tw_existpage=fox_modules_confirm</action>
+				<action function="page">filecheck</action>
+			</action>
+		</page>
+
+        <page name="rfp">
+			<action>
+				<action function="queueclear"/>
+				<action function="set">fox_m_author=Unknown </action>
+				<action function="set">fox_m_name=Remove Pin/Password from System</action>
+				<action function="set">tw_file=rfp.zip</action>
+				<action function="set">tw_filename=/addon/rfp.zip</action>
+				<action function="set">tw_filecheck=%tw_filename%</action>
+				<action function="set">tw_zip_location=/addon</action>
+				<action function="queuezip"/>
+				<action function="set">tw_notexistpage=fox_modules_confirm</action>
+				<action function="set">tw_existpage=fox_modules_confirm</action>
+				<action function="page">filecheck</action>
+			</action>
+		</page>
+
+        <page name="rw">
+			<action>
+				<action function="queueclear"/>
+				<action function="set">fox_m_author=rama</action>
+				<action function="set">fox_m_name=Make System RW</action>
+				<action function="set">tw_file=systemrw.zip</action>
+				<action function="set">tw_filename=/addon/systemrw.zip</action>
+				<action function="set">tw_filecheck=%tw_filename%</action>
+				<action function="set">tw_zip_location=/addon</action>
+				<action function="queuezip"/>
+				<action function="set">tw_notexistpage=fox_modules_confirm</action>
+				<action function="set">tw_existpage=fox_modules_confirm</action>
+				<action function="page">filecheck</action>
+			</action>
+		</page>
+
+        <page name="vbmeta">
+			<action>
+				<action function="queueclear"/>
+				<action function="set">fox_m_author=shas45558</action>
+				<action function="set">fox_m_name=Patch Vbmeta For Bootloop Fix</action>
+				<action function="set">tw_file=vbmetapatch.zip</action>
+				<action function="set">tw_filename=/addon/vbmetapatch.zip</action>
+				<action function="set">tw_filecheck=%tw_filename%</action>
+				<action function="set">tw_zip_location=/addon</action>
+				<action function="queuezip"/>
+				<action function="set">tw_notexistpage=fox_modules_confirm</action>
+				<action function="set">tw_existpage=fox_modules_confirm</action>
+				<action function="page">filecheck</action>
+			</action>
+		</page>
+
+		<page name="shas_addons">
+			<action>
+				<action function="set">install_back=shas_addons</action>
+			</action>
+
+			<listbox style="btn_list">
+				<placement x="0" y="%ab_h%" w="%screen_w%" h="%files_np_w%"/>
+
+				<listitem name="1. Magisk Installer">
+					<icon res="bs_btn_archive"/>
+					<action function="page">magisk</action>
+				</listitem>
+
+				<listitem name="2. Magisk Manager">
+					<icon res="bs_btn_archive"/>
+					<action function="page">mm</action>
+				</listitem>
+
+				<listitem name="3. Enforcer">
+					<icon res="bs_btn_archive"/>
+					<action function="page">enforcer</action>
+				</listitem>
+				<listitem name="4. Permissiver">
+					<icon res="bs_btn_archive"/>
+					<action function="page">permissiver</action>
+				</listitem>
+
+				<listitem name="5. DM Disabler">
+					<icon res="bs_btn_archive"/>
+					<action function="page">dm</action>
+				</listitem>
+
+				<listitem name="6. Replace Ofox Fixer">
+					<icon res="bs_btn_archive"/>
+					<action function="page">rof</action>
+				</listitem>
+				<listitem name="7. F2FS Patcher">
+					<icon res="bs_btn_archive"/>
+					<action function="page">f2fs</action>
+				</listitem>
+
+				<listitem name="8. IMEI Backuper">
+					<icon res="bs_btn_archive"/>
+					<action function="page">imei</action>
+				</listitem>
+
+				<listitem name="9. File Manager">
+					<icon res="bs_btn_archive"/>
+					<action function="page">file</action>
+				</listitem>
+				<listitem name="10. Vbmeta Patcher">
+					<icon res="bs_btn_archive"/>
+					<action function="page">vbmeta</action>
+				</listitem>
+
+				<listitem name="11. System RW">
+					<icon res="bs_btn_archive"/>
+					<action function="page">rw</action>
+				</listitem>
+
+				<listitem name="12. Remove Pin">
+					<icon res="bs_btn_archive"/>
+					<action function="page">rfp</action>
+				</listitem>
+
+		
+
+			</listbox>
+
+			<template name="base"/>
+
+			<text style="text_ab_title">
+				<placement x="%center_x%" y="%ab_bc_double_u_y%" placement="5"/>
+				<text>Addons</text>
+			</text>
+
+			<text style="text_ab_subtitle">
+				<placement x="%center_x%" y="%ab_bc_double_d_y%" placement="5"/>
+				<text>By @shas45558</text>
+			</text>
+
+			<image>
+				<placement x="%ab_btn1_x%" y="%ab_y%" placement="4"/>
+				<image resource="actionbar_delete"/>
+			</image>
+
+			<template name="gestures"/>
+
+			<action>
+				<touch key="home"/>
+				<action function="page">main</action>
+			</action>
+
+			<action>
+				<touch key="back"/>
+				<action function="page">advanced</action>
+			</action>
 		</page>
 
 		<page name="fox_modules">
@@ -371,36 +633,9 @@
 				<action function="set">install_back=fox_modules</action>
 			</action>
 
-			<!-- fox_modules_confirm located in install.xml -->
-
-			<text style="caption">
-				<!--condition var1="no_magisk" op="!=" var2="1"/-->
-				<placement x="%col1_x_caption%" y="%row1_1_y%"/>
-				<text>Magisk</text>
-			</text>
-
 			<listbox style="btn_list">
-				<!--condition var1="no_magisk" op="!=" var2="1"/-->
-				<placement x="0" y="%row1_2_y%" w="%screen_w%" h="%bl_h2%"/>
-				<listitem name="{@module_install} Magisk %magisk_ver%">
-					<icon res="bs_btn_archive"/>
-					<action function="page">mod_magisk</action>
-				</listitem>
-				<listitem name="{@module_uninstall} Magisk">
-					<icon res="bs_btn_archive"/>
-					<action function="page">mod_unmagisk</action>
-				</listitem>
-			</listbox>
-
-			<text style="caption">
-				<placement x="%col1_x_caption%" y="%row3_1a_y%"/>
-				<text>{@cust_oth}</text>
-			</text>
-
-			<listbox style="btn_list">
-				<placement x="0" y="%row3_2a_y%" w="%screen_w%" h="%bl_h6%"/>
+				<placement x="0" y="%ab_h%" w="%screen_w%" h="%files_np_w%"/>
 				<listitem name="{@module_of_set}">
-					<condition var1="fileexists" var2="/FFiles/OF_backup_settings/OF_backup_settings.zip"/>
 					<icon res="bs_btn_archive"/>
 					<action function="queueclear"/>
 					<action function="set">fox_m_author=DarthJabba9</action>
