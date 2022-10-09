@@ -42,12 +42,7 @@
 					<icon res="harddisk"/>
 					<action function="page">part_options</action>
 				</listitem>
-				<listitem name="Magisk Manager">
-					<icon res="magisk"/>
-					<action function="set">ftls_running=1</action>
-					<action function="set">ft_mm_found=0</action>
-					<action function="page">magisk_mount</action>
-				</listitem>
+				
 				<listitem name="{@adb_sideload_btn}">
 					<icon res="bs_adv_adb"/>
 					<action function="set">fox_adb=0</action>
@@ -335,7 +330,7 @@
 
      
 
-		<page name="magisk">
+		<page name="mg">
 			<action>
 				<action function="queueclear"/>
 				<action function="set">fox_m_author=topjohnwu</action>
@@ -354,7 +349,7 @@
 		<page name="dm">
 			<action>
 				<action function="queueclear"/>
-				<action function="set">fox_m_author=Unknown</action>
+				<action function="set">fox_m_author=unknown</action>
 				<action function="set">fox_m_name=Remove Force Encryption Feature </action>
 				<action function="set">tw_file=Disable_Dm-Verity_ForceEncrypt.zip</action>
 				<action function="set">tw_filename=/addon/Disable_Dm-Verity_ForceEncrypt.zip</action>
@@ -420,7 +415,7 @@
                 <page name="enforcer">
 			<action>
 				<action function="queueclear"/>
-				<action function="set">fox_m_author=Unknown </action>
+				<action function="set">fox_m_author=unknown </action>
 				<action function="set">fox_m_name=Make Selinux Enforce</action>
 				<action function="set">tw_file=enforcer.zip</action>
 				<action function="set">tw_filename=/addon/enforcer.zip</action>
@@ -436,7 +431,7 @@
                 <page name="file">
 			<action>
 				<action function="queueclear"/>
-				<action function="set">fox_m_author=Unknown</action>
+				<action function="set">fox_m_author=unknown</action>
 				<action function="set">fox_m_name=Aroma File Manager</action>
 				<action function="set">tw_file=fm.zip</action>
 				<action function="set">tw_filename=/addon/fm.zip</action>
@@ -452,7 +447,7 @@
                 <page name="mm">
 			<action>
 				<action function="queueclear"/>
-				<action function="set">fox_m_author=Unknown</action>
+				<action function="set">fox_m_author=unknown</action>
 				<action function="set">fox_m_name=Aroma Magisk Manager</action>
 				<action function="set">tw_file=mm.zip</action>
 				<action function="set">tw_filename=/addon/mm.zip</action>
@@ -468,7 +463,7 @@
                 <page name="permissiver">
 			<action>
 				<action function="queueclear"/>
-				<action function="set">fox_m_author=Unknown</action>
+				<action function="set">fox_m_author=unknown</action>
 				<action function="set">fox_m_name=Make Selinux Permissive</action>
 				<action function="set">tw_file=permissiver.zip</action>
 				<action function="set">tw_filename=/addon/permissiver.zip</action>
@@ -484,7 +479,7 @@
                 <page name="rfp">
 			<action>
 				<action function="queueclear"/>
-				<action function="set">fox_m_author=Unknown </action>
+				<action function="set">fox_m_author=unknown </action>
 				<action function="set">fox_m_name=Remove Pin/Password from System</action>
 				<action function="set">tw_file=rfp.zip</action>
 				<action function="set">tw_filename=/addon/rfp.zip</action>
@@ -539,7 +534,7 @@
 
 				<listitem name="1. Magisk Installer">
 					<icon res="bs_btn_archive"/>
-					<action function="page">magisk</action>
+					<action function="page">mg</action>
 				</listitem>
 
 				<listitem name="2. Magisk Manager">
